@@ -1,7 +1,8 @@
-package dk.klintsoe.chessProject.model;
+package dk.klintsoe.chessProject.model.tournament;
 
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name ="Person")
@@ -11,10 +12,11 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int personId;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "raking")
     private int rating;
+
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    public Collection<Player> getPlayerList;
 
 }

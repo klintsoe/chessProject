@@ -1,6 +1,4 @@
-package dk.klintsoe.chessProject.model;
-
-import org.springframework.stereotype.Component;
+package dk.klintsoe.chessProject.model.tournament;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,27 +15,21 @@ public class Tournament {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int tournamentID;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "seasonYear")
     private String seasonYear;
 
-    @Column(name = "tournamentType")
     private TournamentType tournamentType;
 
-    @Column(name = "numberOfRounds")
     private int numberOfRounds;
 
-    @Column(name = "korrektionType")
     private KorrektionType korrektionType;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
     private Collection<Player> playerList;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL)
     private Collection<Round> roundList;
-
 
     public Tournament(String name, String seasonYear, TournamentType tournamentType, int numberOfRound, KorrektionType korrektionType) {
         this.name = name;

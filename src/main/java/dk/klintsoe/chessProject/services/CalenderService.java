@@ -22,7 +22,8 @@ public class CalenderService {
 //    }
 
     public List<ChessCalender> getFullCalendar() {
-        return calendarRepository.findAll();
+        List<ChessCalender> chessCalenders = calendarRepository.findAll();
+        return chessCalenders;
     }
 
 }

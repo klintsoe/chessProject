@@ -2,6 +2,7 @@ package dk.klintsoe.chessProject.model.calendar;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,13 +19,45 @@ public class ChessCalender {
     @OneToMany(mappedBy = "chessCalender", cascade = CascadeType.ALL)
     private List<ChessCalendarEntry> entryList;
 
+    public ChessCalender() {}
+
     public ChessCalender(String season, List<ChessCalendarEntry> list) {
         this.season = season;
-        this.entryList = list;
+        entryList = new ArrayList();
+        if(list != null) {
+            list.stream().forEach(chess -> addCalendarEntry(chess));
+        }
+        //this.entryList = list;
     }
 
     public List<ChessCalendarEntry> getEntryList() {
         return entryList;
     }
 
+    public void addCalendarEntry(ChessCalendarEntry chessCalendarEntry) {
+        chessCalendarEntry.setChessCalender(this);
+        this.entryList.add(chessCalendarEntry);
+    }
+
+    public int getSeasonId() {
+        return seasonId;
+    }
+
+    public void setSeasonId(int seasonId) {
+        this.seasonId = seasonId;
+    }
+
+    public String getSeason() {
+        return season;
+    }
+
+    public void setSeason(String season) {
+        this.season = season;
+    }
+
+    public void setEntryList(List<ChessCalendarEntry> entryList) {
+        if(entryList != null) {
+            entryList.stream().forEach(chess -> addCalendarEntry(chess));
+        }
+    }
 }

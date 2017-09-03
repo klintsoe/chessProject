@@ -1,14 +1,10 @@
 package dk.klintsoe.chessProject.Dao;
 
-import dk.klintsoe.chessProject.model.Tournament;
-import org.springframework.stereotype.Component;
+import dk.klintsoe.chessProject.model.tournament.Tournament;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.TooManyListenersException;
 
 @Repository
 public class JpaHibernateService {

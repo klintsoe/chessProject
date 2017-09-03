@@ -1,12 +1,11 @@
 package dk.klintsoe.chessProject.webService;
 
-import dk.klintsoe.chessProject.model.Player;
-import dk.klintsoe.chessProject.model.Tournament;
+import dk.klintsoe.chessProject.model.tournament.Player;
+import dk.klintsoe.chessProject.model.tournament.Tournament;
 import dk.klintsoe.chessProject.services.TournamentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 @RestController
