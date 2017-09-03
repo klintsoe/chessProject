@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 
 @Entity
-//@Table(name="Match")
+@Table(name="Match")
 public class Match {
 
     public enum MatchResult{WhiteWin, BlackWin, Remis, NotPlayed};
