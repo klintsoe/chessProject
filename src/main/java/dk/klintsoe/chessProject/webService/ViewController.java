@@ -20,4 +20,7 @@ public class ViewController {
         model.addAttribute("name", "Master Søren");
         return "greeting";
     }
+
+
+
 }
